@@ -1,0 +1,14 @@
+@import "colors";
+@import "header";
+@import "block";
+@import "card";
+@import "columns";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
