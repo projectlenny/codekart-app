@@ -1,4 +1,7 @@
 import './../css/main.scss';
 import { Menu } from './menu';
+import './Router';
+import { Terminal } from './terminal';
 
-const menu = new Menu();
+Terminal.start();
+// const menu = new Menu();

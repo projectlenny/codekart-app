@@ -1,0 +1,36 @@
+.banner {
+    background: $blue;
+
+    &__title {
+        padding: 20px;
+
+        &__text {
+            font-family: "Luckiest Guy", Arial, Helvetica, sans-serif;
+            color: #fff;
+            letter-spacing: 1.5px;
+        }
+    }
+
+    &__tabs {
+        padding: 10px;
+        padding-bottom: 0;
+
+        &__list {
+            list-style: none;
+            display: flex;
+
+            &__tab {
+                padding: 10px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                text-align: center;
+
+                &__link {
+                    color: #fff;
+                    text-decoration: none;
+                    font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+                }
+            }
+        }
+    }
+}

@@ -4,7 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/app.js',
+    entry: {
+        app: ['babel-polyfill', './src/js/app.js']
+    },
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'js/bundle.js',
