@@ -9,11 +9,20 @@ const routes = {
 
 async function Router() {
     const win = document.querySelector('.window');
-    const route = new URLParser(window.location).json().hashes.page || '/';
+    const parsed = new URLParser(window.location).json().hashes;
+
+    const route = parsed.page;
+
+    if(parsed.popup != null) {
+        Terminal.info('popup detected');
+        alert('popup detected');
+    }
 
     let page = routes[route] || error;
 
     Terminal.info(route); 
+
+    window.route = route;
 
     document.querySelector('.banner__title__text').innerHTML = page.title;
     win.innerHTML = await page.render();

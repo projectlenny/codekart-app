@@ -1,3 +1,5 @@
+import { Terminal } from "./terminal";
+
 export class URLParser {
     constructor(url) {
         this.url = url;
@@ -22,8 +24,14 @@ export class URLParser {
                     let hashValue = hash[1].replace(new RegExp('%22', 'g'), '"');
                     hashesObject[hash[0]] = JSON.parse(hashValue);
                 } else {
-                    hashesObject[hash[0]] = hash[1];
+                    if(hash[0] == 'page' && hash[1] == '__current__') {
+                        hashesObject[hash[0]] = window.route || '/';
+                    } else {
+                        hashesObject[hash[0]] = hash[1];
+                    }
                 }
+            } else {
+                hashesObject.page = '/';
             }
         });
 
