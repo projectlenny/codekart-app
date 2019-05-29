@@ -14,6 +14,7 @@ export const error = {
     },
     
     afterRender: async () => {
-        Terminal.info('Error loaded!')
+        Terminal.error('Page not found');
+        Terminal.info('Error loaded!');
     }
 }
