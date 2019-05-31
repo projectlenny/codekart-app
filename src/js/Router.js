@@ -2,9 +2,12 @@ import { Terminal } from "./terminal";
 import { URLParser } from './urlparser';
 import { dashboard } from "./pages/dashboard";
 import { error } from "./pages/error";
+import { connect } from "./pages/connect";
+import { Popup } from "./popup";
 
 const routes = {
-    '/': dashboard
+    '/': dashboard,
+    'connect': connect
 };
 
 async function Router() {
@@ -13,19 +16,21 @@ async function Router() {
 
     const route = parsed.page;
 
-    if(parsed.popup != null) {
-        Terminal.info('popup detected');
-        alert('popup detected');
-    }
-
     let page = routes[route] || error;
-
-    Terminal.info(route); 
 
     window.route = route;
 
     document.querySelector('.banner__title__text').innerHTML = page.title;
     win.innerHTML = await page.render();
+
+    if(parsed.popup != null) {
+        const popupModule = routes[parsed.popup];
+        const popupContent = await popupModule.render();
+        const popup = new Popup(popupModule.title, popupContent, 'OK', 'CANCEL');
+        popup.show();
+        popupModule.afterRender(popup);
+    }
+    
     page.afterRender();
 }
 

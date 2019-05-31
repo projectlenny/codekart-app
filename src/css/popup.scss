@@ -1,0 +1,67 @@
+.popup {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(120, 120, 120, 0.5);
+}
+
+.popup__container {
+    padding: 20px;
+    width: 80%;
+    background: $blue;
+    position: relative;
+}
+
+.popup__text {
+    font-family: 'Luckiest Guy', Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+.popup__content {
+    margin: 10px 0;
+    font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+.popup__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.popup__close:hover {
+    color: $red;
+}
+
+.popup__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.action {
+    background: $blue;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin: 0 10px;
+    flex: 1;
+    max-width: 75px;
+}
+
+.action--success {
+    background: $green;
+}
+
+.action--danger {
+    background: $red;
+}
