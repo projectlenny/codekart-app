@@ -1,5 +1,3 @@
-import { Terminal } from "./terminal";
-
 export class Popup {
     constructor(title, content, okText, cancelText) {
         this.html = `
